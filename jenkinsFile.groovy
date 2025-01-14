@@ -16,8 +16,10 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 script {
+                    echo 'Initializing venv...'
+                    bat "venv\\Scripts\\activate.bat"
                     echo 'Installing dependencies...'
-                    bat "venv\\Scripts\\activate.bat && pip install -r requirements.txt"
+                    bat "pip install -r requirements.txt"
                 }
             }
         }
@@ -25,8 +27,10 @@ pipeline {
         stage('Run Pytest') {
             steps {
                 script {
+                    echo 'Initializing venv...'
+                    bat "venv\\Scripts\\activate.bat"
                     echo 'Running Pytest...'
-                    bat "venv\\Scripts\\activate.bat && pytest"
+                    bat "pytest -m %PYTEST_MARKER%"
                 }
             }
         }
