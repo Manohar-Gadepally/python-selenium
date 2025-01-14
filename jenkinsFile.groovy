@@ -34,7 +34,7 @@ pipeline {
                     echo 'Running Pytest...'
                     bat '''
                         venv\\Scripts\\activate.bat
-                        pytest -m %PYTEST_MARKER%
+                        pytest
                     '''
                 }
             }
