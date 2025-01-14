@@ -8,7 +8,9 @@ pipeline {
             steps {
                 script {
                     echo 'Setting up Python virtual environment...'
-                    bat "python -m venv venv && venv\\Scripts\\activate.bat"
+                    bat "python -m venv venv"
+                    echo 'Initializing venv...'
+                    bat "venv\\Scripts\\activate.bat"
                 }
             }
         }
