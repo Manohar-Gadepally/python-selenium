@@ -8,9 +8,7 @@ pipeline {
             steps {
                 script {
                     echo 'Setting up Python virtual environment...'
-                    bat '''
-                        python -m venv venv && venv\\Scripts\\activate.bat
-                    '''
+                    bat "python -m venv venv && venv\\Scripts\\activate.bat"
                 }
             }
         }
@@ -19,9 +17,7 @@ pipeline {
             steps {
                 script {
                     echo 'Installing dependencies...'
-                    bat '''
-                        venv\\Scripts\\activate.bat && pip install -r requirements.txt
-                    '''
+                    bat "venv\\Scripts\\activate.bat && pip install -r requirements.txt"
                 }
             }
         }
@@ -30,9 +26,7 @@ pipeline {
             steps {
                 script {
                     echo 'Running Pytest...'
-                    bat '''
-                        venv\\Scripts\\activate.bat && pytest
-                    '''
+                    bat "venv\\Scripts\\activate.bat && pytest"
                 }
             }
         }
