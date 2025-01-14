@@ -1,5 +1,5 @@
-from common.pages.base_page import Base
-from common.enums.products import Product
+from main.common.pages.base_page import Base
+from main.common.enums.products import Product
 from selenium.webdriver.common.by import By
 
 

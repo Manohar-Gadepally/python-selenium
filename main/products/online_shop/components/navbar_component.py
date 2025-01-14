@@ -1,6 +1,6 @@
 from selenium.webdriver.common.by import By
 
-from common.pages.base_page import Base
+from main.common.pages.base_page import Base
 
 
 class NavBarComponent(Base):

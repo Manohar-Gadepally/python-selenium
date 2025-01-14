@@ -1,6 +1,6 @@
 from selenium.webdriver.support.wait import WebDriverWait
 
-from common.enums.products import Product
+from main.common.enums.products import Product
 from selenium.webdriver.webkitgtk.webdriver import WebDriver
 
 

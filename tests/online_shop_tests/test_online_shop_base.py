@@ -1,7 +1,7 @@
 import pytest
 
-from products.online_shop.components.navbar_component import NavBarComponent
-from products.online_shop.pages.login_page import Login
+from main.products.online_shop.components.navbar_component import NavBarComponent
+from main.products.online_shop.pages.login_page import Login
 
 
 @pytest.mark.usefixtures("setup")
