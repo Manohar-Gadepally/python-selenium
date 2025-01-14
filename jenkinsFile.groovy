@@ -21,7 +21,7 @@ pipeline {
                 script {
                     echo 'Installing dependencies...'
                     bat '''
-                        venv\\Scripts\\activate.bat
+//                         venv\\Scripts\\activate.bat
                         pip install -r requirements.txt
                     '''
                 }
@@ -33,7 +33,7 @@ pipeline {
                 script {
                     echo 'Running Pytest...'
                     bat '''
-                        venv\\Scripts\\activate.bat
+//                         venv\\Scripts\\activate.bat
                         pytest
                     '''
                 }
