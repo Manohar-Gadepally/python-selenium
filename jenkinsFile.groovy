@@ -9,8 +9,7 @@ pipeline {
                 script {
                     echo 'Setting up Python virtual environment...'
                     bat '''
-                        python -m venv venv
-                        venv\\Scripts\\activate.bat
+                        python -m venv venv && venv\\Scripts\\activate.bat
                     '''
                 }
             }
@@ -21,8 +20,7 @@ pipeline {
                 script {
                     echo 'Installing dependencies...'
                     bat '''
-//                         venv\\Scripts\\activate.bat
-                        pip install -r requirements.txt
+                        venv\\Scripts\\activate.bat && pip install -r requirements.txt
                     '''
                 }
             }
@@ -33,8 +31,7 @@ pipeline {
                 script {
                     echo 'Running Pytest...'
                     bat '''
-//                         venv\\Scripts\\activate.bat
-                        pytest
+                        venv\\Scripts\\activate.bat && pytest
                     '''
                 }
             }
