@@ -1,16 +1,16 @@
 pipeline {
     agent any
     parameters {
-        string(name: 'PYTEST_MARKER', defaultValue: 'smoke', description: 'smoke tests')
+        string(name: 'PYTEST_MARKER', defaultValue: 'smoke', description: 'Marker for pytest')
     }
     stages {
         stage('Setup') {
             steps {
                 script {
                     echo 'Setting up Python virtual environment...'
-                    sh '''
-                        python3 -m venv venv
-                        source venv/bin/activate
+                    bat '''
+                        python -m venv venv
+                        venv\\Scripts\\activate.bat
                     '''
                 }
             }
@@ -20,8 +20,8 @@ pipeline {
             steps {
                 script {
                     echo 'Installing dependencies...'
-                    sh '''
-                        source venv/bin/activate
+                    bat '''
+                        venv\\Scripts\\activate.bat
                         pip install -r requirements.txt
                     '''
                 }
@@ -32,9 +32,9 @@ pipeline {
             steps {
                 script {
                     echo 'Running Pytest...'
-                    sh '''
-                        source venv/bin/activate
-                        pytest -m ${env.PYTEST_MARKER}
+                    bat '''
+                        venv\\Scripts\\activate.bat
+                        pytest -m %PYTEST_MARKER%
                     '''
                 }
             }
