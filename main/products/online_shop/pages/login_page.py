@@ -13,20 +13,20 @@ class Login(Base):
     def __init__(self, driver):
         super().__init__(driver)
 
-    @allure.step("Entering username")
     def __enter_username(self, username):
+        self.logger.info(f"Entering username '{username}'")
         self.driver.find_element(*Login.USERNAME).click()
         self.driver.find_element(*Login.USERNAME).send_keys(username)
         return self
 
-    @allure.step("Entering password")
     def __enter_password(self, password):
+        self.logger.info("Entering password")
         self.driver.find_element(*Login.PASSWORD).click()
         self.driver.find_element(*Login.PASSWORD).send_keys(password)
         return self
 
-    @allure.step("Clicking on login button")
     def __click_on_login_button(self):
+        self.logger.info("Clicking in login button")
         self.driver.find_element(*Login.LOGIN_BTN).click()
         self.wait_for_page_load()
 

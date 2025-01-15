@@ -1,4 +1,4 @@
-from common.pages.base_page import Base
+from main.common.pages.base_page import Base
 
 
 class Home(Base):
