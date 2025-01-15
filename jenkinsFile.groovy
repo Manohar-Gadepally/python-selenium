@@ -32,7 +32,7 @@ pipeline {
                     echo 'Initializing venv...'
                     bat "venv\\Scripts\\activate.bat"
                     echo 'Running Pytest...'
-                    bat "pytest -m %PYTEST_MARKER%"
+                    bat "pytest --alluredir=./allure_results -m %PYTEST_MARKER%"
                 }
             }
             post {
