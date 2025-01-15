@@ -32,12 +32,12 @@ pipeline {
                     echo 'Initializing venv...'
                     bat "venv\\Scripts\\activate.bat"
                     echo 'Running Pytest...'
-                    bat "pytest --alluredir=./allure_results -m %PYTEST_MARKER%"
+                    bat "pytest -m %PYTEST_MARKER%"
                 }
             }
             post {
                 always {
-                    allure includeProperties: false, jdk: '', results: [[path: 'allure-results']]
+                    allure includeProperties: false, jdk: '', results: [[path: 'build/allure-results']]
                 }
             }
         }
