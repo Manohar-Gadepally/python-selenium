@@ -35,10 +35,10 @@ pipeline {
                     bat "pytest --alluredir=./allure_temp-m %PYTEST_MARKER%"
                 }
             }
-        }
-        post {
-            always {
-                allure includeProperties: false, jdk: '', results: [[path: './allure-temp']]
+            post {
+                always {
+                    allure includeProperties: false, jdk: '', results: [[path: './allure-temp']]
+                }
             }
         }
     }
