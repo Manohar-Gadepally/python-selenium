@@ -1,3 +1,5 @@
+import allure
+
 from main.common.pages.base_page import Base
 from main.common.enums.products import Product
 from selenium.webdriver.common.by import By
@@ -11,20 +13,24 @@ class Login(Base):
     def __init__(self, driver):
         super().__init__(driver)
 
+    @allure.step("Entering username")
     def __enter_username(self, username):
         self.driver.find_element(*Login.USERNAME).click()
         self.driver.find_element(*Login.USERNAME).send_keys(username)
         return self
 
+    @allure.step("Entering password")
     def __enter_password(self, password):
         self.driver.find_element(*Login.PASSWORD).click()
         self.driver.find_element(*Login.PASSWORD).send_keys(password)
         return self
 
+    @allure.step("Clicking on login button")
     def __click_on_login_button(self):
         self.driver.find_element(*Login.LOGIN_BTN).click()
         self.wait_for_page_load()
 
+    @allure.step("Logging into application")
     def login_to_application(self, username, password):
         self.launch_application(Product.ONLINE_SHOP)
         self.__enter_username(username)\
