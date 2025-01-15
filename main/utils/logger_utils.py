@@ -8,7 +8,7 @@ class Logger:
 
         file_handler = logging.FileHandler('.\\logs')
         formatter = logging.Formatter("%(asctime)s :%(levelname)s [%(filename)s:%(lineno)s - %(funcName)s() ] %("
-                                      "message)s")
+                                      "message)s", datefmt='%d-%b-%y %H:%M:%S')
         file_handler.setFormatter(formatter)
 
         ch = logging.StreamHandler()
