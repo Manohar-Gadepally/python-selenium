@@ -26,7 +26,7 @@ class Login(Base):
         return self
 
     def __click_on_login_button(self):
-        self.logger.info("Clicking in login button")
+        self.logger.info("Clicking on login button")
         self.driver.find_element(*Login.LOGIN_BTN).click()
         self.wait_for_page_load()
 

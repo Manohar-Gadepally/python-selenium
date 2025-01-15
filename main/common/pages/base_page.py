@@ -7,10 +7,10 @@ from main.utils.logger_utils import Logger
 
 
 class Base:
+    logger = Logger.get_logger()
 
     def __init__(self, driver: WebDriver):
         self.driver = driver
-        self.logger = Logger.get_logger()
 
     def launch_application(self, product: Product):
         self.driver.get(product.value)
